@@ -1,0 +1,256 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content%}
+    {% load static %}
+    <!-- Custom styles for this template -->
+    <link href="{% static 'core/css/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/map.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/paleta.css' %}">
+
+    <script src="https://kit.fontawesome.com/ad7edff5b6.js" crossorigin="anonymous"></script>
+
+    <!-- Page Content -->
+    <div class="container mt-5 pt-5">
+        <hr class="featurette-divider">
+
+        <!-- Page Heading -->
+        <h1 class="my-4 text-center">Contáctenos
+            <small>Conozca más sobre nuestros servicios</small>
+        </h1>
+
+        <div class="row mb-4">
+
+            <!--Formulario-->
+
+            <div class="col-sm mb-4">
+
+                <div class="card border-warning">
+
+                    <div class="card-header color1 text-white">
+
+                        <h6 class="card-title titulo font-weight-bold">
+
+                            FORMULARIO <br>
+
+                            <small class="text-white">Complete y envíe el formulario. Responderemos a la brevedad.
+                                <br>Gracias.</small>
+
+                        </h6>
+
+
+
+                    </div>
+
+                    <div class="card-body">
+                        
+                        {% if 'ok' in request.GET %}
+                            <p class="alert alert-success font-weight-bold text-center" role="alert">¡Mensaje enviado!</p>
+                        {% elif 'fail' in request.GET %}
+                            <p class="alert alert-danger" font-weight-bold text-center" role="alert">¡Error al enviar el mensaje!</p>
+                        {% endif %}
+
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <span class="text-center"><i class="fa fa-user bigicon"></i></span>
+
+                                <label for="nombre" class="font-weight-bold">Nombre *</label>
+
+                                <!--input type="text" class="form-control" name="nombre" placeholder="" required-->
+                                {{form.name}}
+                                {{forms.name.errors}}    
+                            </div>
+
+                            <div class="form-group">
+                                <span class="text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+
+                                <label for="email" class="font-weight-bold">Email *</label>
+
+                                <!--input type="email" class="form-control" name="email" placeholder="email@example.com" required-->
+                                {{form.email}}
+                                {{forms.email.errors}}
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <span class="text-center"><i class="fas fa-tasks"></i></span>
+
+                                <label for="asunto" class="font-weight-bold">Asunto *</label>
+
+                                <!--input type="text" class="form-control" name="asunto" placeholder="" required-->
+                                {{form.subject}}
+                                {{forms.subject.errors}}
+                            </div>
+
+                            <div class="form-group">
+
+                                <span class="text-center"><i class="far fa-comment-dots"></i></span>
+
+                                <label for="consulta" class="font-weight-bold">Consulta *</label>
+
+                                <!--textarea name="consulta" id="consulta" class="form-control" placeholder=""
+                                    required></textarea-->
+                                {{form.content}}
+                                {{forms.content.errors}}
+                                <hr>
+
+                                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Enviar">
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--/fin formulario-->
+
+
+
+            <!--Mapa 1-->
+
+            <div class="col-sm mb-4">
+
+                <div class="card border-warning">
+
+                    <div class="card-header color1 text-white">
+
+                        <h6 class="card-title titulo font-weight-bold">UDRIZAR HERMANOS<br>
+
+                            <small class="text-white">
+
+                                25 de Mayo y 9 de Linea, Bandera<br>
+
+                                Santiago del Estero, Argentina<br>
+
+                                <a href="tel:+593512161978" class="text-white"> Tel. 0351 15-2161978</a>, (CP 3064)
+
+                            </small>
+
+                        </h6>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <!--Google map-->
+
+
+
+                        <div id="map-container-google-1" class="z-depth-1-half map-container mt-1 mb-1"
+                            style="height: 441.3px">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3493.2559284960103!2d-62.2684307843689!3d-28.89074198553629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94376d72faf4a063%3A0x902c20759019d9ac!2sUdrizar%20Hermanos!5e0!3m2!1ses!2sar!4v1579903238132!5m2!1ses!2sar"
+                                frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+                        </div>
+
+                        <!--/Google Maps-->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--/Fin mapa1-->
+
+
+
+            <!--Mapa 2-->
+
+            <div class="col-sm">
+
+                <div class="card border-warning">
+
+                    <div class="card-header color1 text-white">
+
+                        <h6 class="card-title titulo font-weight-bold">UDRIZAR HERMANOS <br>
+
+                            <small class="text-white">
+
+                                Pres. Juan Domingo Perón y 25 de Mayo, Morrison<br>
+
+                                Córdoba, Argentina<br>
+
+                                <a href="tel:+54" class="text-white">Tel. (0351) XX XXXX</a>, (CP 5000)
+
+                            </small>
+
+                        </h6>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <!--Google map-->
+
+
+
+                        <div id="map-container-google-1" class="z-depth-1-half map-container mt-1 mb-1"
+                            style="height: 441.3px">
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3361.7828664453896!2d-62.82952888428536!3d-32.58531436101929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cc09d50fd81e3b%3A0xf71f05daceb7e96d!2sPres.%20Juan%20Domingo%20Per%C3%B3n%2C%20Morrison%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1579904383560!5m2!1ses-419!2sar"
+                                frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+
+                        <!--/Google Maps-->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--/Fin mapa2-->
+
+        </div>
+
+        <hr>
+
+
+
+        <!-- RRHH -->
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-7 mt-4">
+
+                    <!--img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt=""-->
+
+                    <img class="img-fluid rounded mb-3 mb-md-0" src="{% static 'core/img/rrhh_2.jpg' %}" alt="">
+
+                </div>
+
+                <div class="col-md-5 text-center mt-4">
+
+                    <h3>¡Sumate al equipo!</h3>
+
+                    <p>¿Experiencia en el área agrícola-ganadera? <br> ¿Ganas de emprender tu carrera profesional?<br>
+                        ¿Disponibilidad para viajar?</p>
+
+                    <p>Envíanos tu CV con el asunto: "Equipo Udrizar"</p>
+
+                    <a class="btn btn-primary" href="mailto:consultas@udrizarhnos.com">Enviar</a>
+
+                </div>
+
+            </div>
+
+            <!-- /.row -->
+            <hr>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+{% endblock %}
