@@ -1,4 +1,11 @@
 # web-udrizar
-Repositorio proyecto web: Empresa Udrizar Hermanos.
+
+Repositorio 
+
+Proyecto web: Empresa Udrizar Hermanos.
+
+Frontend: Bootstrap 4. 
+
+Backend: Django + Python.
 
 
